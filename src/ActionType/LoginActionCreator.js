@@ -1,6 +1,4 @@
 import axios from 'axios'
-
-
 import {
     LOGIN_API_SUCCESS ,
     LOGIN_API_ERROR ,
