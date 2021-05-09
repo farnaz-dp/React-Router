@@ -4,6 +4,8 @@ import {Header} from "./Header";
 import {AppRoute} from "./AppRoute";
 import {BrowserRouter} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {DashboardLayout} from './Layout/DashboardLayout'
+import {LoginLayout} from './Layout/LoginLayout'
 
 const MainApp = (props) => {
 
@@ -24,15 +26,32 @@ const MainApp = (props) => {
     //     console.log("MainApp , isLogin is :" , isLogin)
     // },[isLogin])
 
+    const layoutRender = () => {
+        if (isLogin | isLoginRedux) {
+            return(
+                <DashboardLayout/>
+            )
+
+        }
+        else {
+            return (
+                <LoginLayout/>
+            )
+        }
+    }
 
     return(
-        <>
-            {
-                (isLogin | isLoginRedux) ?<Header/> :null
-            }
 
-            <AppRoute/>
+        <>
+            {layoutRender()}
         </>
+        // <>
+        //     {
+        //         (isLogin | isLoginRedux) ?<Header/> :null
+        //     }
+        //
+        //     <AppRoute/>
+        // </>
 
 
     )
