@@ -37,8 +37,6 @@ const AppRoute = () => {
 
 
 
-
-
         </Switch>
     )
 }
